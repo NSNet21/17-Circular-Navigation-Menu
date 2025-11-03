@@ -1,0 +1,164 @@
+:root {
+  --text: rgb(240, 236, 244);
+  --background: rgb(5, 3, 8);
+  --primary: rgb(177, 139, 226);
+  --secondary: rgb(77, 20, 153);
+  --accent: rgb(138, 55, 249);
+}
+
+* {
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--background);
+}
+
+/* remove the default padding & margin of the menu-list item */
+ul.menu {
+  padding: 0;
+  margin: 0;
+}
+
+/* styling the footer */
+.footer {
+  position: absolute;
+  bottom: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+.footer h2 {
+  text-align: center;
+  opacity: 0.2;
+  color: var(--text);
+  font-size: 2rem;
+  transition: all 0.9s ease-in-out;
+}
+
+.footer:hover h2 {
+  color: var(--accent);
+  text-shadow: 0 0 65px var(--accent);
+  opacity: 0.5;
+}
+
+/* styling the mene-list */
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  width: 400px;
+  height: 400px;
+}
+
+/* styling the toggle button */
+.toggle {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--text);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  color: var(--background);
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 4px rgb(0, 0, 0, 0.5);
+  transition: all 1s ease;
+  z-index: 99;
+}
+
+#Toggle i {
+  font-size: 2.25rem;
+  color: var(--background);
+  transition: transform 1s ease, color 0.4s ease-in-out, text-shadow 0.4s ease;
+  z-index: 99;
+}
+
+#Toggle:hover {
+  box-shadow: 0 0 35px 3px var(--accent);
+}
+
+#Toggle:hover i {
+  color: var(--accent);
+}
+
+.menu.active #Toggle:hover {
+  box-shadow: 0 0 95px 5px rgb(255, 0, 68);
+}
+
+.menu.active #Toggle i {
+  transform: rotate(315deg);
+}
+
+.menu.active #Toggle:hover i {
+  color: rgb(255 0 0);
+  text-shadow: 0 0 35px rgb(255, 0, 0);
+}
+
+/* styling the list of the menu */
+.menu li {
+  position: absolute;
+  left: 80px;
+  transform-origin: 120px;
+  color: var(--text);
+  transition: transform 0.5s ease calc(0.1s * var(--i)),
+    opacity 0.3s ease calc(0.1s * var(--i));
+  transform: rotate(0) translateX(95px);
+  opacity: 0;
+}
+
+.menu.active li {
+  transform: rotate(calc(360deg / 8 * var(--i))) translateX(0);
+  opacity: 1;
+}
+
+.menu a {
+  transition: transform 0.5s ease, box-shadow 0.4s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--text);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  /* transition-delay: calc(0.1s * var(--i)); */
+}
+
+.menu a i {
+  font-size: 1.45rem;
+  color: var(--background);
+  transition: all 0.3s ease-in-out;
+}
+
+.menu.active a {
+  transform: rotate(calc(360deg / -8 * var(--i)));
+}
+
+.menu.active a:hover {
+  box-shadow: 0 0 35px 2px var(--accent);
+}
+
+.menu.active a:hover i {
+  color: var(--accent);
+  text-shadow: 0 0 35px var(--accent);
+}
