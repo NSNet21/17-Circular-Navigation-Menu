@@ -1,6 +1,7 @@
 const toggler = document.getElementById("Toggle");
 const menu = document.getElementById("Menu");
-const items = document.querySelectorAll("li");
+const items = document.querySelectorAll(".menu li");
+console.log(items);
 
 toggler.addEventListener("click", () => {
   toggler.style.pointerEvents = "none";
